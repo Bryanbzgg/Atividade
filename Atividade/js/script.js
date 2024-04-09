@@ -206,7 +206,6 @@ exercicio13 = () => {
     let num2 = document.getElementById("num2").value;
     let error = document.getElementById("erro");
     let result = document.getElementById("resultado");
-    let maior, menor;
     result.innerText = "";
     if (num2 < num1) {
         menor = parseInt(num2)
@@ -217,7 +216,7 @@ exercicio13 = () => {
     }
 
     if (parseInt(num1) <= 0 || parseInt(num2) <= 0) {
-        error.innerText = "Digite Números maiores que Zero";
+        error.innerText = "Favor digitar um numero valido";
         result.innerText = "";
     }else{
         error.innerText = "" ;
@@ -228,16 +227,13 @@ exercicio13 = () => {
         }
     }
 
-
 function verificarPrimo(numero){
     let primo = true;
     for (let i = 2; i < numero; i++) {
         if (numero % i == 0) primo = false;
     }
     return primo
-};
-
-
+}
   }
 
   exercicio14 =() =>{
@@ -257,9 +253,6 @@ function verificarPrimo(numero){
   }
   
   }
-
-  exercicio15 = () =>{
-
     exercicio15 = () => {
       let pala = document.getElementById("palavra").value;
       document.getElementById("resultado").innerText = "";
@@ -306,7 +299,6 @@ function verificarPrimo(numero){
         }
       }
     };
-  }
 
   exercicio16 = () =>{
 
@@ -348,10 +340,9 @@ function verificarPrimo(numero){
     let num1 = document.getElementById("num1").value;
     let num2 = document.getElementById("num2").value;
     let num3 = document.getElementById("num3").value;
-
     let error = document.getElementById("erro");
     let result = document.getElementById("resultado");
-    let area =(( (num1+num2) *num3) /2)
+    let area =( (Number(num1)+Number(num2)) * (Number(num3)) /2)
     result.innerHTML = "";
     error.innerText = "";//---------------------------------------------------------------------------------
 
@@ -364,18 +355,59 @@ function verificarPrimo(numero){
       }
   }
   exercicio19 = () =>{
-
+let data = document.getElementById("data").value
+let result = document.getElementById("resultado")
+let data1 = new Date();
+let data2 = new Date(data);
+let dif = data1.getTime() - data2.getTime()
+let error = document.getElementById("erro")
+let idedi= Math.floor(dif / (1000 * 60 * 60 * 24 *365.25))
+if (idedi>110 || idedi<=0) {
+  result.innerText=""
+  error.innerHTML="informe idade valida"
+}else{
+  error.innerHTML=""
+  result.innerHTML = `a idade é ${idedi}`
+}
   }
   exercicio20 = () =>{
+    let frase = document.getElementById("frase").value
+    let result = document.getElementById("resultado")
+    let error = document.getElementById("erro")
+    let inversao = ""
+    error.innerText = ""
+    result.innerHTML = ""
+
+    if (frase ==""){
+      error.innerText = `escreva algo`
+    }
+    else{
+
+      for (let i = 1; i <= frase.length; i++) {
+        inversao += frase.charAt(frase.length - i)
+        result.innerHTML = `o inverso da palavra ${frase} é ${inversao}`
+        
+      }
+    }
 
   }
-
   exercicio21 = () =>{
-
-  }
-
-  exercicio22 = () =>{
-    let num = document.getElementById("num");
+    let frase = document.getElementById("frase").value
+    let error = document.getElementById("erro")
+    let result = document.getElementById("resultado")
+    let espacobranco = frase.trim();
+    
+      if( frase == ""){
+        result.innerHTML = ""
+        error.innerText = "favor informar uma frase"
+      }   else{
+        error.innerText = ""
+result.innerHTML = espacobranco.replace(/\s/g, " ")
+      }
+    }    
+  
+    exercicio22 = () =>{
+    let num = document.getElementById("num").value;
 let soma = 0
     let error = document.getElementById("erro");
     let result = document.getElementById("resultado");
@@ -394,7 +426,30 @@ let soma = 0
   }
 
   exercicio23 = ()=>{
+    let frase = document.getElementById("frase").value.toLowerCase()
+    let error = document.getElementById("erro");
+    let result = document.getElementById("resultado");
+    let palavra = document.getElementById("palavra").value.toLowerCase()
+result.innerHTML = ""
+error.innerHTML = ""
+let contador  = 0
+let buspalavra = frase.split(" ")
 
+if (frase == "" || palavra == "" ) {
+  error.innerHTML = `escreva uma frase valida`
+
+}else{
+  for (let i = 0; i < buspalavra.length; i++) {
+    if(palavra == buspalavra [i]){
+
+      contador++
+    }
+    
+  }
+  result.innerHTML = `a palavra ${palavra} aparece ${contador} vezes, na frase que foi escrita`
+}
+
+    
   }
   exercicio24 = () =>{
   
