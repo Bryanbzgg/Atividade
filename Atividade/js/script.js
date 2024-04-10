@@ -202,8 +202,8 @@ result.innerHTML =`a soma dos digitos é de ${soma}`
 };
 
 exercicio13 = () => {
-    let num1 = document.getElementById("num1").value;
-    let num2 = document.getElementById("num2").value;
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
     let error = document.getElementById("erro");
     let result = document.getElementById("resultado");
     result.innerText = "";
@@ -452,8 +452,43 @@ if (frase == "" || palavra == "" ) {
     
   }
   exercicio24 = () =>{
+    let resultado = document.getElementById("resultado");
+
+    let valor = document.getElementById("frase").value;
+    let frase = valor.split(" ");
+    const array = [];
   
+    let erro = document.getElementById("erro");
+  
+    if (valor == "") {
+      erro.innerText = "Coloque um título!";
+      resultado.innerHTML = "";
+    } else {
+      erro.innerText = "";
+      const fraseMod = frase.map((palavra) => {
+        const primeiraLetra = palavra[0].toUpperCase();
+        array.push(primeiraLetra);
+        return primeiraLetra + palavra.slice(1);
+      });
+      resultado.innerHTML = `<h1>${fraseMod.join(" ")}</h1>`;
+    }
   }
   exercicio25 = () =>{
+    let num1 = document.getElementById("num1").value;
+  let num2 = document.getElementById("num2").value;
+  let num3 = document.getElementById("num3").value;
+  let result = document.getElementById("resultado");
+  let error = document.getElementById("erro");
+  result.innerText = "";
+
+  let nome = [];
+  nome.push(num1);
+  nome.push(num2);
+  nome.push(num3);
+  nome.sort((a, b) => a - b);
+
+  result.innerText += `#${nome[0]}` ;
+  (result.innerText += `#${nome[1]}` ), (result.innerText += `#${nome[2]}` );
+
 
   }
